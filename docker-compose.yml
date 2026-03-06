@@ -1,0 +1,19 @@
+services:
+  web-dev:
+    # Use the specified image from Docker Hub, or build locally if not available
+    image: stensel8/web-dev:${version:-latest}
+
+    # Build configuration
+    build:
+      context: .  # Use the current directory as the build context
+      dockerfile: Dockerfile  # Specify the Dockerfile to use
+
+    # Map port 8080 on the host to port 80 inside the container
+    ports:
+      - "8080:80"
+
+    # Set a custom container name
+    container_name: web-dev
+
+    # Ensure the container restarts automatically if it stops
+    restart: always

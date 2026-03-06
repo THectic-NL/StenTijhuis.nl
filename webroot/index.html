@@ -1,0 +1,354 @@
+<!--
+  This is a simple HTML template for a personal webpage.
+  It includes sections for a header, about me, resume, and contact form.
+  The page is styled using Bootstrap and custom CSS. 
+-->
+
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <!-- Meta Information -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="description"
+      content="Your Name - Extra text to show in the search engine results."
+    />
+    <meta name="author" content="Your Name " />
+    <meta
+      name="keywords"
+      content="Add your keywords here, separated by commas"
+    />
+
+    <!-- Title -->
+    <title>Enter your title here</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Google Fonts -->
+    <link href="css/googlefonts.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS Files -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/boxicons.css" rel="stylesheet" />
+    <link href="css/glightbox.css" rel="stylesheet" />
+    <link href="css/remixicon.css" rel="stylesheet" />
+    <link href="css/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Transparent overlay (background effect) -->
+    <div class="overlay"></div>
+
+    <!-- Header Section -->
+    <header id="header">
+      <div class="container">
+        <h1><a href="https://github.com/stensel8">Stensel8</a></h1>
+        <!-- Uncomment the following line to use an image as logo -->
+        <!-- <a href="https://github.com/stensel8" class="mr-auto">
+             <img src="android-chrome-192x192.png" alt="" class="img-fluid" id="large-favicon">
+           </a> -->
+        <h2 class="text-light">Text to show up on the index page.</h2>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link active" href="#header">Home</a></li>
+            <li><a class="nav-link" href="#about">About me</a></li>
+            <li><a class="nav-link" href="#resume">My resume</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="https://linkedin.com/in/your-name/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/githubname/" class="github"><i class="bi bi-github"></i></a>
+          <a href="https://gitlab.com/gitlabname/" class="gitlab"><i class="bi bi-gitlab"></i></a>
+          <a href="https://hub.docker.com/u/dockername" class="docker"><i class="bx bxl-docker"></i></a>
+          </div>
+      </div>
+    </header>
+    <!-- End of Header Section -->
+
+    <!-- About Me Section -->
+    <section id="about" class="about">
+      <!-- About Me Content -->
+      <div class="about-me container">
+        <div class="section-title">
+          <h2>About me</h2>
+          <p>A few captivating insights.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img
+              src="assets/img/profile.avif"
+              style="width: 75%;"
+              class="img-fluid"
+              alt="alt-text for search engines here..."
+            />
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at pretium justo. Curabitur lobortis malesuada sem, in convallis ex porta nec.
+            </p>
+            <p>
+              Donec vitae mauris ac nulla dictum egestas. Sed in arcu massa. Vivamus sit amet sagittis neque, nec cursus sapien. Proin luctus, ipsum at laoreet accumsan, dolor ipsum pellentesque purus, sed varius ipsum elit vitae libero.
+            </p>
+            <p>
+              Suspendisse potenti. Praesent dictum, felis id consequat congue, mauris tortor euismod nisi, vitae tincidunt nisl leo vitae arcu. Aenean sed elit quis libero interdum finibus.
+            </p>
+            <p>
+              Nam feugiat, urna ut fermentum cursus, nisl dui maximus magna, vel fermentum eros sapien non velit. Vivamus in placerat augue, non sollicitudin purus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- End of About Me Content -->
+
+      <!-- Skills Section (Generic Lorem Ipsum Template) -->
+      <div class="skills container">
+        <div class="section-title">
+          <h2>Lorem Ipsum Skills</h2>
+          <p>This is a placeholder section for skills. Replace these texts with your details.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-cog"></i>
+          <h3>Lorem ipsum</h3>
+          <p>Consectetur adipiscing elit.</p>
+        </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-cloud"></i>
+          <h3>Dolor sit amet</h3>
+          <p>Sed do eiusmod tempor incididunt.</p>
+        </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-code"></i>
+          <h3>Adipiscing elit</h3>
+          <p>Ut labore et dolore magna aliqua.</p>
+        </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-wrench"></i>
+          <h3>Ut enim ad</h3>
+          <p>Minim veniam, quis nostrud exercitation.</p>
+        </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-shield-alt"></i>
+          <h3>Excepteur</h3>
+          <p>Sint occaecat cupidatat non proident.</p>
+        </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-network-chart"></i>
+          <h3>Sunt in culpa</h3>
+          <p>Qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-user-check"></i>
+          <h3>Laboris nisi</h3>
+          <p>Ut aliquip ex ea commodo consequat.</p>
+        </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+        <div class="icon-box">
+          <i class="bx bx-bulb"></i>
+          <h3>Reprehenderit</h3>
+          <p>Excepteur sint occaecat cupidatat.</p>
+        </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Skills Section -->
+
+      <!-- Interests Section -->
+      <div class="interests container">
+        <div class="section-title">
+          <h2>Interests</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <i class="ri-star-line"></i>
+              <h3>Interest 1</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <i class="ri-star-line"></i>
+              <h3>Interest 2</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <i class="ri-star-line"></i>
+              <h3>Interest 3</h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <i class="ri-star-line"></i>
+              <h3>Interest 4</h3>
+            </div>
+          </div>
+        </div>
+        <!-- Button for additional interests -->
+        <div class="text-center mt-4">
+          <a class="btn btn-primary" href="#" target="_blank">
+            View all interests
+          </a>
+        </div>
+      </div>
+      <!-- End of Interests Section -->
+
+    </section>
+    <!-- End of About Me Section -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+      <div class="container">
+      <div class="section-title">
+        <h2>Your Resume Title Here</h2>
+        <p>Add a brief description or subtitle for your resume section.</p>
+      </div>
+      <div class="row">
+        <!-- Left Column: Education -->
+        <div class="col-lg-6">
+        <h3 class="resume-title">Education</h3>
+        <div class="resume-item pulse">
+          <h4>Degree or Course Name</h4>
+          <h5>Year - Year</h5>
+          <p><em>Institution Name</em></p>
+          <ul>
+          <li><strong>Year - Year:</strong> Major or specialization details</li>
+          <li><strong>Year - Year:</strong> Additional info or minor</li>
+          </ul>
+        </div>
+        <div class="resume-item">
+          <h4>Qualification or Certification</h4>
+          <h5>Year - Year</h5>
+          <p><em>Institution Name</em></p>
+        </div>
+        <div class="resume-item">
+          <h4>High School Diploma</h4>
+          <h5>Year - Year</h5>
+          <p><em>School Name</em></p>
+        </div>
+        <div class="resume-item">
+          <h4>Secondary School Education</h4>
+          <h5>Year - Year</h5>
+          <p><em>School Name</em></p>
+        </div>
+        </div>
+
+        <!-- Right Column: Experience -->
+        <div class="col-lg-6">
+        <h3 class="resume-title">Experience</h3>
+        <div class="resume-item">
+          <h4>Job Title or Role</h4>
+          <h5>Month Year - Month Year</h5>
+          <p><em>Company or Organization</em></p>
+        </div>
+        <div class="resume-item">
+          <h4>Job Title or Role</h4>
+          <h5>Month Year - Month Year</h5>
+          <p><em>Company or Organization</em></p>
+        </div>
+        <div class="resume-item">
+          <h4>Job Title or Role</h4>
+          <h5>Month Year - Month Year</h5>
+          <p><em>Company or Organization</em></p>
+        </div>
+        <div class="resume-item">
+          <h4>Job Title or Role</h4>
+          <h5>Month Year - Month Year</h5>
+          <p><em>Company or Organization</em></p>
+        </div>
+        <div class="resume-item">
+          <h4>Job Title or Role</h4>
+          <h5>Month Year - Month Year</h5>
+          <p><em>Company or Organization</em></p>
+        </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- End of Resume Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Lorem Ipsum Contact</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form action="https://form_handler_here" method="POST" class="php-email-form contact-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Lorem Ipsum Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="_replyto" id="email" placeholder="lorem@example.com" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Lorem Ipsum Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum." required></textarea>
+              </div>
+
+              <div class="my-3">
+                <div class="loading">Lorem ipsum loading...</div>
+                <div class="error-message">Lorem ipsum error.</div>
+                <div class="sent-message">Lorem ipsum message sent.</div>
+              </div>
+              <div class="text-center">
+                <button type="submit">Lorem Ipsum Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- JS Files for functionality -->
+    <script src="js/purecounter_vanilla.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/glightbox.js"></script>
+    <script src="js/isotope.pkgd.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/noframework.waypoints.js"></script>
+    <script src="js/form-handler.js"></script>
+
+    <!-- Main JS File -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

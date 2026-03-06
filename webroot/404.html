@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <!-- Meta Info -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title -->
+    <title>404 - Pagina niet gevonden :(</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/404.css">
+    
+    <!-- JavaScript -->
+    <script src="js/translate.js" defer></script>
+
+</head>
+
+<body>
+    <!-- Taalwissel Knop -->
+    <button id="lang-toggle">Switch to English</button>
+    
+    <div class="noise"></div>
+    <div class="overlay"></div>
+    <div class="terminal">
+        <div id="content">
+            <!-- Nederlandse inhoud -->
+            <h1 class="nl">Fout <span class="errorcode">404</span></h1>
+            <p class="nl output">De pagina die je zoekt, is mogelijk verwijderd, de naam is gewijzigd of is tijdelijk niet beschikbaar.</p>
+            <p class="nl output">Probeer <a href="#1" onclick="window.history.back();" class="errorcode">terug te gaan</a> of <a href="https://github.com/stensel8" class="errorcode">keer terug naar de homepage</a>.</p>
+            <p class="nl output">Veel succes.</p>
+
+            <!-- Engelse inhoud -->
+            <h1 class="en" style="display:none;">Error <span class="errorcode">404</span></h1>
+            <p class="en output" style="display:none;">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            <p class="en output" style="display:none;">Try <a href="#1" onclick="window.history.back();" class="errorcode">going back</a> or <a href="https://github.com/stensel8" class="errorcode">returning to the homepage</a>.</p>
+            <p class="en output" style="display:none;">Good luck.</p>
+        </div>
+    </div>
+</body>
+
+</html>

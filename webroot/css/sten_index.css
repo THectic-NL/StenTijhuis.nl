@@ -1,0 +1,240 @@
+/* Algemene stijl voor de body en html */
+body, html {
+    height: 100%;
+    font-family: 'Inconsolata', monospace;
+    background-color: #000000;
+    color: rgba(128, 255, 128, 0.8);
+    text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Header stijl met achtergrondafbeelding */
+header.masthead {
+    background: url('../assets/img/bg-masthead.avif') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+header.masthead h1, header.masthead h2 {
+    color: rgba(128, 255, 128, 0.8);
+}
+
+header.masthead .btn {
+    background-color: rgba(128, 255, 128, 0.8);
+    color: #000;
+    border: none;
+    text-shadow: none;
+}
+
+header.masthead .btn:hover {
+    background-color: rgba(100, 200, 100, 0.8);
+}
+
+header.masthead .container {
+    z-index: 2;
+}
+
+header.masthead::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+header.masthead h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+header.masthead h2 {
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* Stijlen voor secties */
+section {
+    padding: 5rem 0;
+}
+
+section.bg-dark {
+    background-color: #041607 !important;
+}
+
+section.bg-secondary {
+    background-color: #11581E !important;
+}
+
+/* Stijlen voor de footer */
+footer {
+    background-color: #000000;
+    color: rgba(128, 255, 128, 0.8);
+}
+
+footer a {
+    color: rgba(128, 255, 128, 0.8);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Tekstkleur wit en muted */
+.text-white {
+    color: rgba(128, 255, 128, 0.8) !important;
+}
+
+.text-muted {
+    color: rgba(128, 255, 128, 0.4) !important;
+}
+
+/* Stijlen voor het contactformulier */
+form .form-control {
+    background-color: #041607;
+    border: 1px solid rgba(128, 255, 128, 0.4);
+    color: rgba(128, 255, 128, 0.8);
+}
+
+form .form-control::placeholder {
+    color: rgba(128, 255, 128, 0.4);
+}
+
+form .form-control:focus {
+    border-color: rgba(128, 255, 128, 0.8);
+    box-shadow: none;
+}
+
+form label {
+    color: rgba(128, 255, 128, 0.8);
+}
+
+form button {
+    background-color: rgba(128, 255, 128, 0.8);
+    color: #000;
+    border: none;
+    text-shadow: none;
+    margin-top: 40px; /* Vergroot de marge aan de bovenkant voor extra ruimte */
+}
+
+form button:hover {
+    background-color: rgba(100, 200, 100, 0.8);
+}
+
+/* Stijlen voor portfolio items en modals */
+.portfolio-item {
+    background-color: #1b1b1b;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.portfolio-caption {
+    color: #9a9a;
+}
+
+/* Portfolio Modals */
+.portfolio-modal .modal-content {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+.portfolio-modal .btn-primary {
+    background-color: #5a5a5a;
+    border: none;
+}
+
+.portfolio-modal .btn-primary:hover {
+    background-color: #767676;
+}
+
+.portfolio-modal .btn {
+    margin-bottom: 15px;
+}
+
+.portfolio-modal .carousel-control-prev-icon,
+.portfolio-modal .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.portfolio-modal .carousel-control-prev,
+.portfolio-modal .carousel-control-next {
+    width: 5%;
+}
+
+.carousel-item {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+/* Extra stijl voor de navbar */
+.navbar-nav .nav-item .nav-link {
+    color: rgba(128, 255, 128, 0.8);
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: rgba(100, 200, 100, 0.8);
+}
+
+.navbar-nav .nav-link.active {
+    color: red;
+}
+
+/* Hamburger menu fix voor navbar */
+.navbar-toggler {
+    border-color: rgba(128, 255, 128, 0.8);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(128, 255, 128, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Zorg dat de collapsible navbar zichtbaar is */
+.collapse.navbar-collapse.show {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Formulier instellingen... */
+
+.loading,
+.error-message,
+.sent-message {
+  display: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.loading {
+  color: #007bff; /* Bootstrap's primary color */
+}
+
+.error-message {
+  background-color: #dc3545; /* Bootstrap's danger color */
+  color: #fff;
+}
+
+.sent-message {
+  background-color: #28a745; /* Bootstrap's success color */
+  color: #fff;
+}
+
+.d-block {
+  display: block !important;
+}

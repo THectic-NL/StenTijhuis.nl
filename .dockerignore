@@ -1,0 +1,21 @@
+# Ignore git files and folders
+.git
+.gitignore
+
+# Ignore documentation and markdown files
+*.md
+
+# Ignore docker-compose file (not needed in image)
+docker-compose.yml
+
+# Ignore node_modules and package manager logs (if applicable)
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignore test and docs folders
+tests
+docs
+
+# Optionally ignore local environment files
+.env
