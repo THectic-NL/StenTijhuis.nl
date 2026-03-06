@@ -1,0 +1,1 @@
+const WEB3_FORMS_CONFIG={accessKey:"cfececf3-33b4-4bd1-934d-695f1d0cc35a",apiEndpoint:"https://api.web3forms.com/submit"};

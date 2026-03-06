@@ -1,52 +1,81 @@
-<!--
-  This is a simple HTML template for a personal webpage.
-  It includes sections for a header, about me, resume, and contact form.
-  The page is styled using Bootstrap and custom CSS. 
--->
-
 <!DOCTYPE html>
 <html lang="nl">
   <head>
     <!-- Meta Information -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta
-      name="description"
-      content="Your Name - Extra text to show in the search engine results."
-    />
-    <meta name="author" content="Your Name " />
-    <meta
-      name="keywords"
-      content="Add your keywords here, separated by commas"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Sten Tijhuis - HBO-ICT student gespecialiseerd in Cloud & Cybersecurity. Expertise in Docker, Podman, Linux, Git, Automatisering en ICT infrastructuur."/>
+    <meta name="author" content="Sten Tijhuis" />
+    <meta name="keywords" content="Cloud, Cybersecurity, Docker, Podman, Linux, DevOps, ICT, Saxion, HBO-ICT, Git, Automatisering, Privacy, Security" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://stentijhuis.nl/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stentijhuis.nl/" />
+    <meta property="og:title" content="Sten Tijhuis - Cloud & Cybersecurity Specialist" />
+    <meta property="og:description" content="HBO-ICT student Cloud & Cybersecurity. Expertise in Docker, Podman, Linux, Automatisering en ICT Consultancy." />
+    <meta property="og:image" content="https://stentijhuis.nl/assets/img/me.avif" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:site_name" content="Sten Tijhuis" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sten Tijhuis - Cloud & Cybersecurity" />
+    <meta name="twitter:description" content="HBO-ICT student Cloud & Cybersecurity. Expertise in Docker, Podman, Linux en Automatisering." />
+    <meta name="twitter:image" content="https://stentijhuis.nl/assets/img/me.avif" />
 
     <!-- Title -->
-    <title>Enter your title here</title>
+    <title>Sten Tijhuis - Cloud & Cybersecurity | HBO-ICT Student</title>
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Sten Tijhuis" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
 
-    <!-- Google Fonts -->
-    <link href="css/googlefonts.css" rel="stylesheet" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/bootstrap.min.css" as="style" integrity="sha384-1ol62sE5jsKkC+t73Jiuu8TEQG330UUhsYCab0XO0PRYongzUl54iHIKN8fMUs7s" crossorigin="anonymous" />
+    <link rel="preload" href="css/style.css" as="style" integrity="sha384-0LvhknBxetDwnCav9lhYOtB6YpB0rCC6aUEXhvQo395lrqLmpaa+1Q4nqXDkhliT" crossorigin="anonymous" />
+    <link rel="preload" href="assets/img/bg-masthead.avif" as="image" />
 
-    <!-- Bootstrap CSS Files -->
-    <link href="css/bootstrap.css" rel="stylesheet" />
+    <!-- Bootstrap CSS Files (Custom minimal build) -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1ol62sE5jsKkC+t73Jiuu8TEQG330UUhsYCab0XO0PRYongzUl54iHIKN8fMUs7s" crossorigin="anonymous" />
 
     <!-- Vendor CSS Files -->
-    <link href="css/bootstrap-icons.css" rel="stylesheet" />
-    <link href="css/boxicons.css" rel="stylesheet" />
-    <link href="css/glightbox.css" rel="stylesheet" />
-    <link href="css/remixicon.css" rel="stylesheet" />
-    <link href="css/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="js/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet" integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk" crossorigin="anonymous" />
 
     <!-- Main CSS File -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" integrity="sha384-0LvhknBxetDwnCav9lhYOtB6YpB0rCC6aUEXhvQo395lrqLmpaa+1Q4nqXDkhliT" crossorigin="anonymous" />
+
+    <!-- Structured Data (Schema.org) for better SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sten Tijhuis",
+      "url": "https://stentijhuis.nl",
+      "image": "https://stentijhuis.nl/assets/img/me.avif",
+      "description": "HBO-ICT student gespecialiseerd in Cloud & Cybersecurity. Expertise in Docker, Podman, Linux, Git, Automatisering en ICT infrastructuur.",
+      "jobTitle": "HBO-ICT Student Cloud & Cybersecurity",
+      "email": "contact@stentijhuis.nl",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Hogeschool Saxion"
+      },
+      "knowsAbout": ["Cloud Computing", "Cybersecurity", "Docker", "Podman", "Linux", "Git", "DevOps", "Automatisering", "Privacy", "ICT Infrastructure"],
+      "sameAs": [
+        "https://linkedin.com/in/sten-tijhuis/",
+        "https://github.com/stensel8/",
+        "https://gitlab.com/stensel8/",
+        "https://hub.docker.com/u/stensel8"
+      ]
+    }
+    </script>
   </head>
   <body>
     <!-- Transparent overlay (background effect) -->
@@ -55,27 +84,28 @@
     <!-- Header Section -->
     <header id="header">
       <div class="container">
-        <h1><a href="https://github.com/stensel8">Stensel8</a></h1>
+        <h1><a href="https://stentijhuis.nl">Sten Tijhuis</a></h1>
         <!-- Uncomment the following line to use an image as logo -->
-        <!-- <a href="https://github.com/stensel8" class="mr-auto">
+        <!-- <a href="https://stentijhuis.nl" class="mr-auto">
              <img src="android-chrome-192x192.png" alt="" class="img-fluid" id="large-favicon">
            </a> -->
-        <h2 class="text-light">Text to show up on the index page.</h2>
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li><a class="nav-link active" href="#header">Home</a></li>
-            <li><a class="nav-link" href="#about">About me</a></li>
-            <li><a class="nav-link" href="#resume">My resume</a></li>
-            <li><a class="nav-link" href="#contact">Contact</a></li>
+        <h2 class="text-light">HBO-ICT student Cloud & Cybersecurity.</h2>
+        <nav id="navbar" class="navbar" role="navigation" aria-label="Hoofd navigatie">
+          <ul role="menubar">
+            <li role="none"><a class="nav-link active" href="#header" role="menuitem">Home</a></li>
+            <li role="none"><a class="nav-link" href="#about" role="menuitem">Over Mij</a></li>
+            <li role="none"><a class="nav-link" href="#resume" role="menuitem">Studie & Specialisatie</a></li>
+            <li role="none"><a class="nav-link" href="#contact" role="menuitem">Contact</a></li>
           </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
+          <button class="bi bi-list mobile-nav-toggle" aria-label="Toggle mobiel menu" aria-expanded="false"></button>
         </nav>
         <!-- Social Links -->
         <div class="social-links">
-          <a href="https://linkedin.com/in/your-name/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          <a href="https://github.com/githubname/" class="github"><i class="bi bi-github"></i></a>
-          <a href="https://gitlab.com/gitlabname/" class="gitlab"><i class="bi bi-gitlab"></i></a>
-          <a href="https://hub.docker.com/u/dockername" class="docker"><i class="bx bxl-docker"></i></a>
+          <a href="https://linkedin.com/in/sten-tijhuis/" class="linkedin" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://signal.stentijhuis.nl/" class="signal" aria-label="Signal"><i class="bi bi-signal"></i></a>
+          <a href="https://github.com/stensel8/" class="github" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="https://gitlab.com/stensel8/" class="gitlab" aria-label="GitLab"><i class="bi bi-gitlab"></i></a>
+          <a href="https://hub.docker.com/u/stensel8" class="docker" aria-label="Docker"><i class="bi bi-box-seam"></i></a>
           </div>
       </div>
     </header>
@@ -86,269 +116,224 @@
       <!-- About Me Content -->
       <div class="about-me container">
         <div class="section-title">
-          <h2>About me</h2>
-          <p>A few captivating insights.</p>
+          <h2>Over Mij</h2>
         </div>
         <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
+          <!--<div class="col-lg-4" data-aos="fade-right">
             <img
-              src="assets/img/profile.avif"
+              src="assets/img/me.avif"
               style="width: 75%;"
               class="img-fluid"
-              alt="alt-text for search engines here..."
+              alt="Sten Tijhuis"
             />
-          </div>
+          --></div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at pretium justo. Curabitur lobortis malesuada sem, in convallis ex porta nec.
+              Van jongs af aan ben ik bezig met technologie. Op mijn twaalfde haalde ik mijn gameconsole uit elkaar, en niet veel later repareerde ik mijn laptop.
             </p>
             <p>
-              Donec vitae mauris ac nulla dictum egestas. Sed in arcu massa. Vivamus sit amet sagittis neque, nec cursus sapien. Proin luctus, ipsum at laoreet accumsan, dolor ipsum pellentesque purus, sed varius ipsum elit vitae libero.
+              Dat is uitgegroeid tot een duidelijke visie: technologie moet transparant, veilig en van jou zijn. Ik geloof in open source, privacy en security. Buiten mijn studie houd ik me bezig met Linux-systemen en open source.
             </p>
             <p>
-              Suspendisse potenti. Praesent dictum, felis id consequat congue, mauris tortor euismod nisi, vitae tincidunt nisl leo vitae arcu. Aenean sed elit quis libero interdum finibus.
-            </p>
-            <p>
-              Nam feugiat, urna ut fermentum cursus, nisl dui maximus magna, vel fermentum eros sapien non velit. Vivamus in placerat augue, non sollicitudin purus.
+              Momenteel ben ik derdejaars HBO-ICT student aan Saxion, met als specialisatie Cloud & Cybersecurity. Denk aan netwerken, endpointmanagement, DevOps, Git en automatisering. Wat mij drijft is kritisch kijken naar hoe dingen anders en beter kunnen.
             </p>
           </div>
-        </div>
       </div>
       <!-- End of About Me Content -->
-
-      <!-- Skills Section (Generic Lorem Ipsum Template) -->
+      
+      <!-- Vaardigheden & Interesses Section -->
       <div class="skills container">
         <div class="section-title">
-          <h2>Lorem Ipsum Skills</h2>
-          <p>This is a placeholder section for skills. Replace these texts with your details.</p>
+          <h2>Vaardigheden & Interesses</h2>
         </div>
-        <div class="row">
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-cog"></i>
-          <h3>Lorem ipsum</h3>
-          <p>Consectetur adipiscing elit.</p>
-        </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-cloud"></i>
-          <h3>Dolor sit amet</h3>
-          <p>Sed do eiusmod tempor incididunt.</p>
-        </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-code"></i>
-          <h3>Adipiscing elit</h3>
-          <p>Ut labore et dolore magna aliqua.</p>
-        </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-wrench"></i>
-          <h3>Ut enim ad</h3>
-          <p>Minim veniam, quis nostrud exercitation.</p>
-        </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-shield-alt"></i>
-          <h3>Excepteur</h3>
-          <p>Sint occaecat cupidatat non proident.</p>
-        </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-network-chart"></i>
-          <h3>Sunt in culpa</h3>
-          <p>Qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-user-check"></i>
-          <h3>Laboris nisi</h3>
-          <p>Ut aliquip ex ea commodo consequat.</p>
-        </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mb-4">
-        <div class="icon-box">
-          <i class="bx bx-bulb"></i>
-          <h3>Reprehenderit</h3>
-          <p>Excepteur sint occaecat cupidatat.</p>
-        </div>
-          </div>
-        </div>
-      </div>
-      <!-- End of Skills Section -->
 
-      <!-- Interests Section -->
-      <div class="interests container">
-        <div class="section-title">
-          <h2>Interests</h2>
-        </div>
         <div class="row">
+          <!-- 1. Cloud & Virtualisatie -->
           <div class="col-lg-3 col-md-4 mb-4">
             <div class="icon-box">
-              <i class="ri-star-line"></i>
-              <h3>Interest 1</h3>
+              <i class="bi bi-cloud"></i>
+              <h3>Cloud &amp; Virtualisatie</h3>
             </div>
           </div>
+
+          <!-- 2. Cybersecurity & Privacy -->
           <div class="col-lg-3 col-md-4 mb-4">
             <div class="icon-box">
-              <i class="ri-star-line"></i>
-              <h3>Interest 2</h3>
+              <i class="bi bi-shield-lock"></i>
+              <h3>Cybersecurity &amp; Privacy</h3>
             </div>
           </div>
+
+          <!-- 3. Automatisering & Scripting -->
           <div class="col-lg-3 col-md-4 mb-4">
             <div class="icon-box">
-              <i class="ri-star-line"></i>
-              <h3>Interest 3</h3>
+              <i class="bi bi-terminal"></i>
+              <h3>Automatisering &amp; Scripting</h3>
             </div>
           </div>
+
+          <!-- 4. Websites & servers -->
           <div class="col-lg-3 col-md-4 mb-4">
             <div class="icon-box">
-              <i class="ri-star-line"></i>
-              <h3>Interest 4</h3>
+              <i class="bi bi-globe"></i>
+              <h3>Websites &amp; servers</h3>
             </div>
           </div>
+
+          <!-- 5. Docker & Podman -->
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <img src="assets/img/podman-icon.svg" alt="Podman" />
+              <h3>Docker &amp; Podman</h3>
+            </div>
+          </div>
+
+          <!-- 6. Git & Pipelines -->
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <i class="bi bi-git"></i>
+              <h3>Git &amp; Pipelines</h3>
+            </div>
+          </div>
+
+          <!-- 7. Proton & Signal -->
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <i class="bi bi-file-earmark-lock"></i>
+              <h3>Proton &amp; Signal</h3>
+            </div>
+          </div>
+
+          <!-- 8. Hardware & IoT -->
+          <div class="col-lg-3 col-md-4 mb-4">
+            <div class="icon-box">
+              <i class="bi bi-cpu"></i>
+              <h3>Hardware &amp; IoT</h3>
+            </div>
+          </div>
+
         </div>
-        <!-- Button for additional interests -->
+
         <div class="text-center mt-4">
-          <a class="btn btn-primary" href="#" target="_blank">
-            View all interests
+          <a
+            class="btn btn-outline-success"
+            href="https://www.linkedin.com/in/sten-tijhuis/"
+            target="_blank"
+          >
+            Meer bekijken op LinkedIn
           </a>
         </div>
       </div>
-      <!-- End of Interests Section -->
-
     </section>
-    <!-- End of About Me Section -->
+    <!-- End of Vaardigheden & Interesses Section -->
 
-    <!-- Resume Section -->
+    <!-- Studie & Specialisatie Section -->
     <section id="resume" class="resume">
       <div class="container">
-      <div class="section-title">
-        <h2>Your Resume Title Here</h2>
-        <p>Add a brief description or subtitle for your resume section.</p>
-      </div>
-      <div class="row">
-        <!-- Left Column: Education -->
-        <div class="col-lg-6">
-        <h3 class="resume-title">Education</h3>
-        <div class="resume-item pulse">
-          <h4>Degree or Course Name</h4>
-          <h5>Year - Year</h5>
-          <p><em>Institution Name</em></p>
-          <ul>
-          <li><strong>Year - Year:</strong> Major or specialization details</li>
-          <li><strong>Year - Year:</strong> Additional info or minor</li>
-          </ul>
-        </div>
-        <div class="resume-item">
-          <h4>Qualification or Certification</h4>
-          <h5>Year - Year</h5>
-          <p><em>Institution Name</em></p>
-        </div>
-        <div class="resume-item">
-          <h4>High School Diploma</h4>
-          <h5>Year - Year</h5>
-          <p><em>School Name</em></p>
-        </div>
-        <div class="resume-item">
-          <h4>Secondary School Education</h4>
-          <h5>Year - Year</h5>
-          <p><em>School Name</em></p>
-        </div>
+        <div class="section-title">
+          <h2>Studie & Specialisatie</h2>
         </div>
 
-        <!-- Right Column: Experience -->
-        <div class="col-lg-6">
-        <h3 class="resume-title">Experience</h3>
-        <div class="resume-item">
-          <h4>Job Title or Role</h4>
-          <h5>Month Year - Month Year</h5>
-          <p><em>Company or Organization</em></p>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="resume-item pulse">
+              <h4>Bachelor's degree in HBO-ICT</h4>
+              <h5>2023 - Heden</h5>
+              <p><em>Hogeschool Saxion</em></p>
+              <ul>
+                <li><strong>2023 - 2024:</strong> HBO-ICT Infrastructuren</li>
+                <li><strong>2024 - Heden:</strong> Cloud and Cybersecurity</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>MBO4 in Expert IT Systems and Devices</h4>
+              <h5>2019 - 2023</h5>
+              <p><em>ROC van Twente</em></p>
+            </div>
+
+            <div class="text-center mt-4">
+              <a
+                class="btn btn-outline-success"
+                href="https://www.linkedin.com/in/sten-tijhuis/"
+                target="_blank"
+              >
+                Meer bekijken op LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="resume-item">
-          <h4>Job Title or Role</h4>
-          <h5>Month Year - Month Year</h5>
-          <p><em>Company or Organization</em></p>
-        </div>
-        <div class="resume-item">
-          <h4>Job Title or Role</h4>
-          <h5>Month Year - Month Year</h5>
-          <p><em>Company or Organization</em></p>
-        </div>
-        <div class="resume-item">
-          <h4>Job Title or Role</h4>
-          <h5>Month Year - Month Year</h5>
-          <p><em>Company or Organization</em></p>
-        </div>
-        <div class="resume-item">
-          <h4>Job Title or Role</h4>
-          <h5>Month Year - Month Year</h5>
-          <p><em>Company or Organization</em></p>
-        </div>
-        </div>
-      </div>
       </div>
     </section>
-    <!-- End of Resume Section -->
+    <!-- End of Studie & Specialisatie Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-title">
-          <h2>Lorem Ipsum Contact</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h2>Contact</h2>
         </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <form action="https://form_handler_here" method="POST" class="php-email-form contact-form">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <!-- Web3Forms Contact Form -->
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="php-email-form">
+
+              <!-- Configuration (Key is injected via JS) -->
+              <input type="hidden" name="access_key" value="">
+              <input type="hidden" name="subject" value="Nieuw bericht via StenTijhuis.nl - Contactformulier">
+              <input type="hidden" name="from_name" value="StenTijhuis.nl - Contactformulier">
+
+              <input type="checkbox" name="botcheck" class="hidden">
+
+              <!-- Form Fields -->
               <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Lorem Ipsum Name" required>
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Naam" autocomplete="name" required>
                 </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="_replyto" id="email" placeholder="lorem@example.com" required>
+                <div class="col-md-6 mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="E-mail adres" autocomplete="email" required>
                 </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Lorem Ipsum Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum." required></textarea>
               </div>
 
-              <div class="my-3">
-                <div class="loading">Lorem ipsum loading...</div>
-                <div class="error-message">Lorem ipsum error.</div>
-                <div class="sent-message">Lorem ipsum message sent.</div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Bericht" required></textarea>
               </div>
+
+              <!-- Status Messages (Dutch) -->
+              <div class="my-3">
+                <div class="loading">Bezig met verzenden...</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Je bericht is verzonden. Dankje!</div>
+              </div>
+
               <div class="text-center">
-                <button type="submit">Lorem Ipsum Submit</button>
+                <button type="submit" class="btn btn-primary">Verzend</button>
               </div>
             </form>
+
+            <!-- Direct Email Option -->
+            <div class="text-center mt-4">
+              <p class="mb-2">Of email mij rechtstreeks:</p>
+              <a href="mailto:info@stentijhuis.nl" id="emailBtn" class="email-btn">
+                <i class="bi bi-send"></i>
+              </a>
+              <p class="mt-3 mb-0"><small>
+                <i class="bi bi-shield-lock"></i> 
+                <a href="/.well-known/openpgpkey/hu/mg6owx9w8c3ejg3tu31f4tha5n17d4rj" class="text-muted">PGP Public Key (WKD)</a> 
+                (Fingerprint: <code class="text-muted">AF46 CA48 CA6B 0748</code>)
+              </small></p>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
     <!-- End Contact Section -->
 
-    <!-- JS Files for functionality -->
-    <script src="js/purecounter_vanilla.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/glightbox.js"></script>
-    <script src="js/isotope.pkgd.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/noframework.waypoints.js"></script>
-    <script src="js/form-handler.js"></script>
-
-    <!-- Main JS File -->
-    <script src="js/main.js"></script>
+    <!-- JS Files for functionality (deferred for faster page load) -->
+    <script src="js/config.js" defer integrity="sha384-+qFZBV/SIb7WaIf7me5EYPVQBgbk+csGk60hFjgJxXTxkq3/Ui1CNd2yOOBpKNVF" crossorigin="anonymous"></script>
+    <script src="js/form-handler.js" defer integrity="sha384-NINC1lke2qFcJcHo7mkLXbM6RTOqx6dAzNE34DouOIuazhPmY1AQR0vOG+Iqzzyp" crossorigin="anonymous"></script>
+    <script src="js/main.js" defer integrity="sha384-bXtV/Cdrer/CpPvHsEDv6FIYrlbCc2oyIqcZvhg6n974mOgdaaLR1aVdDf1lxQUZ" crossorigin="anonymous"></script>
   </body>
 </html>

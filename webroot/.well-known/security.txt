@@ -1,0 +1,5 @@
+Contact: mailto:info@stentijhuis.nl
+Encryption: https://stentijhuis.nl/.well-known/openpgpkey/hu/mg6owx9w8c3ejg3tu31f4tha5n17d4rj
+Expires: 2028-03-31T23:59:59.000Z
+Preferred-Languages: nl, en
+Canonical: https://stentijhuis.nl/.well-known/security.txt

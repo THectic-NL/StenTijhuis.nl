@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Interne serverfout</title>
+    <style>
+      html, body {
+        min-height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        height: 100%;
+        background-color: #0d1b2a;
+        background-image: radial-gradient(#1b263b, #0d1b2a);
+        color: rgba(24, 210, 110, 0.88);
+        text-shadow: 0 0 1ex rgba(24, 210, 110, 0.95), 0 0 2px rgba(255, 255, 255, 0.7);
+        font-family: "Consolas", "Courier New", monospace;
+        font-size: clamp(18px, 2.1vw, 26px);
+        letter-spacing: 0.02em;
+      }
+
+      .noise {
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        opacity: 0.03;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.45) 0.5px, transparent 0.5px);
+        background-size: 3px 3px;
+      }
+
+      .overlay {
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        background: repeating-linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0) 0,
+          rgba(0, 0, 0, 0.33) 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        background-size: auto 4px;
+      }
+
+      .overlay::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+          0deg,
+          transparent 0%,
+          rgba(32, 128, 32, 0.12) 2%,
+          rgba(24, 210, 110, 0.75) 3%,
+          rgba(32, 128, 32, 0.12) 3%,
+          transparent 100%
+        );
+        background-repeat: no-repeat;
+        animation: scan 3.5s linear infinite;
+      }
+
+      @keyframes scan {
+        0% { background-position: 0 -100vh; }
+        50% { background-position: 0 0; }
+        100% { background-position: 0 100vh; }
+      }
+
+      .terminal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(1000px, calc(100vw - 2rem));
+        padding: clamp(1.25rem, 3vw, 4rem);
+        text-transform: uppercase;
+        z-index: 2;
+      }
+
+      h1 {
+        margin: 0 0 1.2rem;
+        font-size: 1.7em;
+        line-height: 1.15;
+      }
+
+      .output {
+        margin: 0 0 0.8rem;
+      }
+
+      .output::before {
+        content: "> ";
+      }
+
+      .errorcode {
+        color: #ffffff;
+      }
+
+      a {
+        color: #18d26e;
+        text-decoration: none;
+      }
+
+      a::before { content: "["; }
+      a::after { content: "]"; }
+
+    </style>
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="overlay"></div>
+
+    <main class="terminal">
+      <h1>Fout <span class="errorcode">{{status_code}}</span></h1>
+      <p class="output">Er ging iets mis aan de serverkant. Probeer het over een paar minuten opnieuw.</p>
+      <p class="output">Probeer <a href="#1" class="errorcode">terug te gaan</a> of <a href="https://stentijhuis.nl/" class="errorcode">keer terug naar de homepage</a>.</p>
+      <p class="output">Veel succes.</p>
+    </main>
+
+    <script>
+      document.querySelectorAll('a[href="#1"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          window.history.back();
+        });
+      });
+    </script>
+  </body>
+</html>
