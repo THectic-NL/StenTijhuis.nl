@@ -1,19 +1,15 @@
+# docker compose up -d bouwt en start de statische site lokaal in een nginx-container.
 services:
-  web-dev:
-    # Use the specified image from Docker Hub, or build locally if not available
-    image: stensel8/web-dev:${version:-latest}
-
-    # Build configuration
+  stentijhuis:
     build:
-      context: .  # Use the current directory as the build context
-      dockerfile: Dockerfile  # Specify the Dockerfile to use
+      context: .
+      dockerfile: Dockerfile
 
-    # Map port 8080 on the host to port 80 inside the container
+    # Poort 8080 op de host, poort 80 in de container (standaard HTTP)
     ports:
       - "8080:80"
 
-    # Set a custom container name
-    container_name: web-dev
+    container_name: stentijhuis.nl
 
-    # Ensure the container restarts automatically if it stops
+    # Herstart automatisch bij crashen of na rebooten van de host
     restart: always
