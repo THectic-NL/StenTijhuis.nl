@@ -11,6 +11,9 @@ FROM nginx:1.31.0-alpine-slim@sha256:9e666aeefa9801445bc2ff4994c48d314736dae4cf1
 # Alleen de statische bestanden kopiëren naar nginx
 COPY ./webroot /usr/share/nginx/html
 
+# Eigen nginx config: security headers, gzip, cache
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
 
 # Nginx op de voorgrond draaien zodat Docker de container actief houdt
