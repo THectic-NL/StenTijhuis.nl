@@ -1,0 +1,40 @@
+name: Deploy to Bunny.net
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'webroot/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync to Bunny Storage (S3)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.BUNNY_STORAGE_ZONE }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BUNNY_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: de
+        run: |
+          aws s3 sync webroot/ s3://${{ secrets.BUNNY_STORAGE_ZONE }}/ \
+            --endpoint-url ${{ secrets.BUNNY_STORAGE_ENDPOINT }} \
+            --delete \
+            --no-progress
+
+      - name: Purge Bunny CDN Cache
+        env:
+          BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
+          BUNNY_PULL_ZONE_ID: ${{ secrets.BUNNY_PULL_ZONE_ID }}
+        run: |
+          if [ -z "${BUNNY_API_KEY:-}" ] || [ -z "${BUNNY_PULL_ZONE_ID:-}" ]; then
+            echo "Cache purge skipped (secrets not configured)."
+            exit 0
+          fi
+          curl -s -o /dev/null -w "Cache purge: %{http_code}\n" \
+            -X POST \
+            -H "AccessKey: $BUNNY_API_KEY" \
+            "https://api.bunny.net/pullzone/$BUNNY_PULL_ZONE_ID/purgeCache"

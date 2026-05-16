@@ -1,0 +1,11 @@
+# Local environment variables
+.env
+.env.*
+*.env
+
+# Claude Code local settings (machine-specific, may contain allowed commands)
+.claude/
+
+# Downloaded/exported site snapshots — not source of truth
+export-bunny*/
+
