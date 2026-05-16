@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Sync to Bunny Storage (S3)
         env:
@@ -24,17 +24,3 @@ jobs:
             --endpoint-url ${{ secrets.BUNNY_STORAGE_ENDPOINT }} \
             --delete \
             --no-progress
-
-      - name: Purge Bunny CDN Cache
-        env:
-          BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
-          BUNNY_PULL_ZONE_ID: ${{ secrets.BUNNY_PULL_ZONE_ID }}
-        run: |
-          if [ -z "${BUNNY_API_KEY:-}" ] || [ -z "${BUNNY_PULL_ZONE_ID:-}" ]; then
-            echo "Cache purge skipped (secrets not configured)."
-            exit 0
-          fi
-          curl -s -o /dev/null -w "Cache purge: %{http_code}\n" \
-            -X POST \
-            -H "AccessKey: $BUNNY_API_KEY" \
-            "https://api.bunny.net/pullzone/$BUNNY_PULL_ZONE_ID/purgeCache"
