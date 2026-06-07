@@ -3,14 +3,14 @@ Hash: SHA512
 
 Contact: mailto:info@stentijhuis.nl
 Encryption: https://stentijhuis.nl/.well-known/openpgpkey/hu/mg6owx9w8c3ejg3tu31f4tha5n17d4rj
-Expires: 2028-03-31T23:59:59.000Z
+Expires: 2027-06-08T23:59:59.000Z
 Preferred-Languages: nl, en
 Canonical: https://stentijhuis.nl/.well-known/security.txt
 -----BEGIN PGP SIGNATURE-----
 
-iJEEARYKADkWIQSvRspIymsHSKiumh8BrLar9PwbaQUCaatBRRsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMSwyLDEACgkQAay2q/T8G2lQbgEApyNo1hGiZAvKVObfKrni
-drKBP8bl4CRhZrl7g0hlzkYA/1hAVOrXWhgOUHbNacCLXcHjK7baslKmBa6ozWXw
-rt4I
-=0BiQ
+iJEEARYKADkWIQSvRspIymsHSKiumh8BrLar9PwbaQUCaiX48RsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDEACgkQAay2q/T8G2lkkAD+OyPUSA+p4vNxB+lOl+eI
+NQGPdjs3ZvQ/A/dz8NVIh+cA/1sNB1JsDTVeVCpfcYM9GFifu3yGdiMnuIYF+AWX
+VKEE
+=9D0j
 -----END PGP SIGNATURE-----
