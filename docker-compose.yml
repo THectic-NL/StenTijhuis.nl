@@ -1,6 +1,10 @@
-# docker compose up -d bouwt en start de statische site lokaal in een nginx-container.
+# docker compose up -d start de statische site in een nginx-container.
 services:
   stentijhuis:
+    image: thectic/stentijhuis.nl:${version:-latest}
+
+    # Alleen een lokale image-tag; deze image wordt NIET naar Docker Hub gepubliceerd.
+    # docker compose up --build bouwt 'm altijd lokaal uit de Dockerfile.
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,7 +13,7 @@ services:
     ports:
       - "8080:80"
 
-    container_name: stentijhuis.nl
+    container_name: stentijhuis
 
     # Herstart automatisch bij crashen of na rebooten van de host
     restart: always
