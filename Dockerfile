@@ -14,7 +14,13 @@ COPY ./webroot /usr/share/nginx/html
 # Eigen nginx config: security headers, gzip, cache
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+EXPOSE 8080
+
+# Nginx draaien als niet-root gebruiker (security hardening)
+RUN chown -R nginx:nginx /var/cache/nginx /var/log/nginx && \
+    touch /var/run/nginx.pid && \
+    chown nginx:nginx /var/run/nginx.pid
+USER nginx
 
 # Nginx op de voorgrond draaien zodat Docker de container actief houdt
 CMD ["nginx", "-g", "daemon off;"]

@@ -9,9 +9,9 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    # Poort 8080 op de host, poort 80 in de container (standaard HTTP)
+    # Poort 8080 op de host, poort 8080 in de container (unprivileged, nginx draait als niet-root)
     ports:
-      - "8080:80"
+      - "8080:8080"
 
     container_name: stentijhuis
 
