@@ -1,17 +1,26 @@
+# Copyright (C) 2026 Sten Tijhuis
+# SPDX-License-Identifier: MIT
 name: Deploy to Bunny.net
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - 'webroot/**'
+      - '.github/workflows/deploy-bunny.yml'
   workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    name: Deploy to Bunny Storage
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Check out source code
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Sync to Bunny Storage (S3)
