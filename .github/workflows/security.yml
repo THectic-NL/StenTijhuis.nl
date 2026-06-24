@@ -1,0 +1,92 @@
+# Copyright (C) 2026 Sten Tijhuis
+# SPDX-License-Identifier: MIT
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # Weekly scan to catch new vulnerabilities in existing code
+  schedule:
+    - cron: '0 5 * * 1'
+
+jobs:
+
+  # Semgrep: SAST scanner for vulnerabilities in HTML
+  semgrep:
+    name: Semgrep SAST scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    container:
+      image: semgrep/semgrep@sha256:c180f0c93a17b420c0af5006214a29d3c747c5459c732b740191adf657dd0068
+    # Skip Renovate PRs: no token available in that context
+    if: github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]'
+    steps:
+      - name: Check out source code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Run Semgrep scan
+        run: semgrep scan --config auto --error webroot/
+
+  # zizmor: detects security issues in GitHub Actions workflows
+  # e.g. injection risks via expressions, overly broad permissions, unsafe triggers
+  workflow-security:
+    name: Workflow security (zizmor)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Check out source code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Install zizmor
+        run: pip install zizmor
+
+      - name: Run zizmor
+        run: zizmor --format sarif . > zizmor.sarif || true
+
+      # Results appear in the Security tab of the repository
+      # continue-on-error: upload fails for private repos without GitHub Advanced Security
+      - name: Upload results to GitHub Security
+        uses: github/codeql-action/upload-sarif@8aad20d150bbac5944a9f9d289da16a4b0d87c1e # v4
+        continue-on-error: true
+        with:
+          sarif_file: zizmor.sarif
+          category: zizmor
+
+  # OpenSSF Scorecard: evaluates the security hygiene of the repository
+  # Checks: branch protection, pinned dependencies, code review requirements
+  scorecard:
+    name: OpenSSF Scorecard
+    runs-on: ubuntu-latest
+    # Scorecard only works on pushes to main, not on PRs from forks
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      security-events: write
+      id-token: write
+      contents: read
+    steps:
+      - name: Check out source code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Run Scorecard analysis
+        uses: ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a # v2.4.3
+        continue-on-error: true
+        with:
+          results_file: scorecard.sarif
+          results_format: sarif
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_results: false
+
+      # continue-on-error: upload fails for private repos without GitHub Advanced Security
+      - name: Upload results to GitHub Security
+        uses: github/codeql-action/upload-sarif@8aad20d150bbac5944a9f9d289da16a4b0d87c1e # v4
+        continue-on-error: true
+        with:
+          sarif_file: scorecard.sarif
+          category: scorecard
