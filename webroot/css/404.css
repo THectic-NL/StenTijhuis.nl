@@ -146,23 +146,18 @@ a::after {
   color: #ffffff;
 }
 
-#lang-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border: 2px solid rgba(24, 210, 110, 0.8);
-  background: transparent;
-  color: rgba(24, 210, 110, 0.8);
-  font-size: 1.5rem;
+.kernel-panic {
+  text-transform: none;
   font-family: 'Inconsolata', Helvetica, sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  font-size: 1rem;
+  line-height: 1.15;
+  color: rgba(24, 210, 110, 0.5);
+  text-shadow: 0 0 1px rgba(24, 210, 110, 0.4);
+  margin: 2rem 0 0.5rem;
+  opacity: 0.85;
 }
 
-#lang-toggle:hover {
-  background: rgba(24, 210, 110, 0.1);
-  color: rgba(24, 210, 110, 1);
+.kernel-panic-text {
+  font-size: 1rem;
+  opacity: 0.85;
 }
