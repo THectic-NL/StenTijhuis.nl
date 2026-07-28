@@ -20,7 +20,7 @@ jobs:
     permissions:
       contents: read
     container:
-      image: semgrep/semgrep@sha256:98c2572fced2474539fd27cab3207ebd8e95e4e7aab4c3b381fdc5e2641d9941
+      image: semgrep/semgrep@sha256:bdf7013b2c3634a487671158da77c554f531742326b543a9464d2adf6c433ac8
     # Skip Renovate PRs: no token available in that context
     if: github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]'
     steps:
