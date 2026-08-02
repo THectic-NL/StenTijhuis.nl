@@ -33,3 +33,12 @@ jobs:
             --endpoint-url ${{ secrets.BUNNY_STORAGE_ENDPOINT }} \
             --delete \
             --no-progress
+
+      - name: Wait for storage replication
+        run: sleep 15
+
+      - name: Purge Bunny Pull Zone cache
+        run: |
+          curl -sS --fail-with-body -X POST "https://api.bunny.net/pullzone/${{ secrets.BUNNY_PULL_ZONE_ID }}/purgeCache" \
+            -H "AccessKey: ${{ secrets.BUNNY_API_KEY }}" \
+            -H "Content-Type: application/json"
