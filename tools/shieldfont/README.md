@@ -10,8 +10,8 @@ must be encoded with this exact mapping — a different one (including the
 package's built-in `alpha`/`beta`/etc.) will render as garbage.
 
 **This means the mapping only covers exactly this vocabulary.** Adding a
-new sentence with new words later needs a full regenerate (new mapping +
-new font), not just a call to `encode()` — see below.
+new sentence with new words requires regenerating both the mapping and the
+font together — a call to `encode()` alone is not enough. See below.
 
 This repo has no `package.json` (it's plain static HTML/nginx) — do NOT run
 `npm install` here, it would create one. Encode in a throwaway scratch
