@@ -1,16 +1,15 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-Contact: mailto:info@stentijhuis.nl
+Contact: https://signal.stentijhuis.nl/
 Encryption: https://stentijhuis.nl/.well-known/openpgpkey/hu/mg6owx9w8c3ejg3tu31f4tha5n17d4rj
 Expires: 2027-06-07T23:59:59.000Z
 Preferred-Languages: nl, en
 Canonical: https://stentijhuis.nl/.well-known/security.txt
 -----BEGIN PGP SIGNATURE-----
 
-iJEEARYKADkWIQSvRspIymsHSKiumh8BrLar9PwbaQUCaiaxHBsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMiwyLDEACgkQAay2q/T8G2l2MQEAhRorRF8sji71Qx2Fa6O5
-v8c50yr8E6yzwnsIRIJgZmkA/2UTGq4oRB/DKyx/U8469jND1D4QChvH075rEF+H
-wqEK
-=UIJ8
+iHUEARYKAB0WIQSvRspIymsHSKiumh8BrLar9PwbaQUCanonKQAKCRABrLar9Pwb
+aTzxAP0WOYD1GtH4ZgpLfroak++BpYi73e/Eq1PTMJ86w+b4aAEAx/ngyb70AoR9
+H+266wPAR0FZwZyHUYz0P6f+4Sk7tAc=
+=/oWO
 -----END PGP SIGNATURE-----
