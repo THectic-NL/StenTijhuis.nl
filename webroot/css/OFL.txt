@@ -1,13 +1,9 @@
-Copyright 2020 The Open Sans Project Authors
-(https://github.com/googlefonts/opensans), with Reserved Font Name "Open Sans".
+Copyright 2011 The Inconsolata Project Authors
+(https://github.com/googlefonts/Inconsolata), with Reserved Font Name
+"Inconsolata".
 
-"ShieldFont StenTijhuis" is a Modified Version of Open Sans: a text-substitution
-build generated with the ShieldFont generator (https://github.com/isaqueseneda/shieldfont),
-which injects OpenType GSUB ligature rules that render decoy words with the
-glyph outlines of the original Open Sans letterforms. The glyph outlines are
-unmodified Open Sans; only the ligature/substitution tables and font metadata
-were added. This Modified Version does not use the Reserved Font Name
-"Open Sans" as its own family name.
+The files inconsolata-latin.woff2 and inconsolata-vietnamese-latin-ext.woff2
+are subsets of Inconsolata, used by the error pages.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:

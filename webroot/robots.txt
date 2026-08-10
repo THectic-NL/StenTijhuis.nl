@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /health.html
-
-Sitemap: https://stentijhuis.nl/sitemap.xml
+Disallow: /

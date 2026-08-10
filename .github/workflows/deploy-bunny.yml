@@ -23,6 +23,14 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      # WKD advanced method serves the same key from openpgpkey.stentijhuis.nl
+      # under a domain-scoped path. One copy in git, both paths on the CDN.
+      - name: Mirror OpenPGP key to the WKD advanced path
+        run: |
+          mkdir -p webroot/.well-known/openpgpkey/stentijhuis.nl/hu
+          cp webroot/.well-known/openpgpkey/policy webroot/.well-known/openpgpkey/stentijhuis.nl/policy
+          cp webroot/.well-known/openpgpkey/hu/* webroot/.well-known/openpgpkey/stentijhuis.nl/hu/
+
       - name: Sync to Bunny Storage (S3)
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.BUNNY_STORAGE_ZONE }}
@@ -33,6 +41,22 @@ jobs:
             --endpoint-url ${{ secrets.BUNNY_STORAGE_ENDPOINT }} \
             --delete \
             --no-progress
+
+      # The key files have no extension, so Bunny guesses binary/octet-stream;
+      # WKD requires application/octet-stream.
+      - name: Fix Content-Type on the WKD keys
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.BUNNY_STORAGE_ZONE }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BUNNY_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: de
+        run: |
+          for prefix in .well-known/openpgpkey/hu .well-known/openpgpkey/stentijhuis.nl/hu; do
+            aws s3 cp "webroot/$prefix/" "s3://${{ secrets.BUNNY_STORAGE_ZONE }}/$prefix/" \
+              --endpoint-url ${{ secrets.BUNNY_STORAGE_ENDPOINT }} \
+              --recursive \
+              --content-type application/octet-stream \
+              --metadata-directive REPLACE
+          done
 
       - name: Wait for storage replication
         run: sleep 15
