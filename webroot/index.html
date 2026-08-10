@@ -44,7 +44,6 @@
     <link rel="preload" href="css/bootstrap.min.css" as="style" />
     <link rel="preload" href="css/style.css" as="style" />
     <link rel="preload" href="assets/img/bg-masthead.avif" as="image" />
-    <link rel="preload" href="fonts/shieldfont-stentijhuis.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Bootstrap CSS Files (Custom minimal build) -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -99,12 +98,10 @@
 
             <!-- Direct Email Option -->
             <div class="text-center mt-4">
-              <p class="mb-2">Email me directly:</p>
-              <!-- Real address is base64 in data-email, only decoded inside a
-                   real click handler (see js/main.js). Visible text goes
-                   through ShieldFont — see tools/shieldfont/README.md before
-                   editing. -->
-              <a href="#" id="emailBtn" class="email-btn shielded" data-email="aW5mb0BzdGVudGlqaHVpcy5ubA==" aria-hidden="true">systems@helping.spare</a>
+              <!-- Address is base64 in data-email and only decoded inside a
+                   real click handler (see js/main.js), so it never appears in
+                   the markup. -->
+              <a href="#" id="emailBtn" class="email-btn" data-email="aW5mb0BzdGVudGlqaHVpcy5ubA==">Email me directly</a>
               <p class="mt-3 mb-0"><small>
                 <i class="bi bi-shield-lock"></i>
                 <a href="/.well-known/openpgpkey/hu/mg6owx9w8c3ejg3tu31f4tha5n17d4rj" class="text-muted">PGP Public Key (WKD)</a>
