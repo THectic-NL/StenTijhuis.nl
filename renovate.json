@@ -6,8 +6,12 @@
   "timezone": "Europe/Amsterdam",
   "forkProcessing": "enabled",
   "pinDigests": true,
-  "assigneesFromCodeOwners": true,
-  "reviewersFromCodeOwners": true,
+  "assignees": [
+    "Stensel8"
+  ],
+  "reviewers": [
+    "Stensel8"
+  ],
   "enabledManagers": [
     "dockerfile",
     "docker-compose",
