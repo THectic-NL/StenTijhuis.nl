@@ -15,7 +15,21 @@
   "enabledManagers": [
     "dockerfile",
     "docker-compose",
-    "github-actions"
+    "github-actions",
+    "custom.regex"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Tool versions pinned in workflows, annotated with a `# renovate:` comment on the line above",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/.*\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>\\S+)\\s+[A-Za-z_]+: \"(?<currentValue>[^\"]+)\""
+      ],
+      "extractVersionTemplate": "^v?(?<version>.*)$"
+    }
   ],
   "labels": [
     "dependencies"
@@ -39,6 +53,17 @@
       "addLabels": [
         "github-actions"
       ]
+    },
+    {
+      "description": "Versions pinned by hand in the workflows. Not automerged: some are pinned alongside a checksum that has to be updated in the same PR.",
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "groupName": "Build tooling versions",
+      "addLabels": [
+        "build-tooling"
+      ],
+      "automerge": false
     }
   ],
   "automerge": true,
