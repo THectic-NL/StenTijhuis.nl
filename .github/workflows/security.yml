@@ -51,7 +51,7 @@ jobs:
       # Results appear in the Security tab of the repository
       # continue-on-error: upload fails for private repos without GitHub Advanced Security
       - name: Upload results to GitHub Security
-        uses: github/codeql-action/upload-sarif@5595ccaf912efad79be6eef63a5619ff05969be3 # v4
+        uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4
         continue-on-error: true
         with:
           sarif_file: zizmor.sarif
@@ -85,7 +85,7 @@ jobs:
 
       # continue-on-error: upload fails for private repos without GitHub Advanced Security
       - name: Upload results to GitHub Security
-        uses: github/codeql-action/upload-sarif@5595ccaf912efad79be6eef63a5619ff05969be3 # v4
+        uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4
         continue-on-error: true
         with:
           sarif_file: scorecard.sarif
