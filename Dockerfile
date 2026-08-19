@@ -3,7 +3,7 @@
 # Geen PHP nodig: de site is volledig statisch.
 #
 # USE CASE: lokale ontwikkeling, demo, of productie als statische site.
-FROM nginx:1.31.3-alpine-slim@sha256:45b82ed5f285b90d63df07ba70430fdd8f25624b416617d9e6dc93412b2006dc
+FROM nginx:1.31.4-alpine-slim@sha256:eb37f58646a901dc7727cf448cae36daaefaba79de33b5058dab79aa4c04aefb
 
 # Debugging only: bash en nano (uncomment indien nodig)
 # RUN apk update && apk add --no-cache bash nano
