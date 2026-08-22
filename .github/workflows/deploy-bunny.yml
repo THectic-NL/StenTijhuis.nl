@@ -15,13 +15,23 @@ concurrency:
   group: deploy
   cancel-in-progress: true
 
+# No token needed; jobs that do opt in explicitly. Without this the workflow ran
+# on the repository's default token permissions, which zizmor flagged as overly
+# broad: this job only reads the checkout and then talks to Bunny with its own
+# secrets. Same shape as the other THectic repositories.
+permissions: {}
+
 jobs:
   deploy:
     name: Deploy to Bunny Storage
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Check out source code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       # WKD advanced method serves the same key from openpgpkey.stentijhuis.nl
       # under a domain-scoped path. One copy in git, both paths on the CDN.

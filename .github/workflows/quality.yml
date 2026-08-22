@@ -11,39 +11,107 @@ on:
   pull_request:
     branches: [main]
 
-jobs:
+# No token needed; jobs that do opt in explicitly.
+permissions: {}
 
-  # HTMLHint: checks for structural errors, missing attributes, and accessibility
-  html-lint:
-    name: HTML linting
+# Pushing three times in a row to the same PR started three full runs, and the
+# first two are already stale by then. Not on main: there the run is the record
+# that this commit passed the checks.
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  # HTMLHint on the site, actionlint and zizmor on the workflows. These were
+  # two separate jobs (plus zizmor as a third in security.yml), and every one of
+  # them finishes in seconds. GitHub bills per job and rounds each up to a whole
+  # minute, so three runners cost three minutes for well under one minute of
+  # work.
+  #
+  # Every step runs on !cancelled(), so one red linter does not hide the others.
+  # The job still fails as soon as anything is wrong.
+  lint:
+    name: Lint the site and the workflows
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # For zizmor's SARIF upload below. That step skips itself while the
+      # repository is private; the permission is here so it starts working by
+      # itself the day that changes.
+      security-events: write
     steps:
       - name: Check out source code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # None of these steps push, so the token does not need to stay behind
+          # in .git/config where a later step could pick it up.
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 'lts/*'
 
+      # Pinned, so a new HTMLHint major cannot turn a green build red overnight
+      # without anyone changing a line here. Renovate keeps it current.
       - name: Install HTMLHint
-        run: npm install -g htmlhint
+        env:
+          # renovate: datasource=npm depName=htmlhint
+          HTMLHINT_VERSION: "1.9.2"
+        run: npm install -g "htmlhint@${HTMLHINT_VERSION}"
 
+      # HTMLHint: structural errors, missing attributes, accessibility.
       - name: Check HTML
+        if: ${{ !cancelled() }}
         run: htmlhint "webroot/**/*.html"
 
-  # actionlint: checks workflow files for syntax errors and incorrect expressions
-  workflow-lint:
-    name: Check workflow files
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out source code
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # Pinned release plus checksum. The old form was
+      # `bash <(curl https://raw.githubusercontent.com/.../main/scripts/...)`:
+      # a script off the main branch, fetched without --fail and executed
+      # unverified. Whatever that URL served, this runner ran -- and because it
+      # tracked main, it could change under us without a commit here.
+      - name: Install actionlint
+        if: ${{ !cancelled() }}
+        env:
+          # renovate: datasource=github-releases depName=rhysd/actionlint
+          ACTIONLINT_VERSION: "1.7.12"
+          ACTIONLINT_SHA256: "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+        run: |
+          curl -sSL --fail-with-body -o actionlint.tar.gz \
+            --retry 5 --retry-delay 3 --retry-all-errors \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          echo "${ACTIONLINT_SHA256}  actionlint.tar.gz" | sha256sum -c -
+          tar -xzf actionlint.tar.gz actionlint
+          sudo install -m 0755 actionlint /usr/local/bin/actionlint
 
-      - name: Download actionlint
-        id: get_actionlint
-        run: bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-        shell: bash
-
+      # actionlint: syntax errors and incorrect expressions in the workflows.
       - name: Run actionlint
-        run: ${{ steps.get_actionlint.outputs.executable }} -color
+        if: ${{ !cancelled() }}
+        run: actionlint -color
+
+      # zizmor used to be its own job in security.yml. It lints the same files
+      # as actionlint, only on security rather than syntax, so it belongs beside
+      # it rather than on a runner of its own.
+      #
+      # pipx and not pip: the runner's system Python is externally managed
+      # (PEP 668), so a plain pip install aborts.
+      - name: Install zizmor
+        if: ${{ !cancelled() }}
+        env:
+          # renovate: datasource=pypi depName=zizmor
+          ZIZMOR_VERSION: "1.29.0"
+        run: pipx install "zizmor==${ZIZMOR_VERSION}"
+
+      - name: Run zizmor
+        if: ${{ !cancelled() }}
+        run: zizmor --format sarif . > zizmor.sarif || true
+
+      # Skipped while the repository is private: a code scanning upload needs
+      # GitHub Advanced Security there.
+      - name: Upload zizmor results to GitHub Security
+        uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4
+        if: ${{ !cancelled() && !github.event.repository.private }}
+        continue-on-error: true
+        with:
+          sarif_file: zizmor.sarif
+          category: zizmor
