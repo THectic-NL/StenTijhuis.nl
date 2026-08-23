@@ -7,7 +7,12 @@ on:
     branches: [main]
     paths:
       - 'webroot/**'
-      - '.github/workflows/quality.yml'
+      - '*.md'
+      # Alle workflows, niet alleen deze: actionlint en zizmor hieronder lezen
+      # ze allemaal, dus een wijziging in security.yml hoort deze job ook te
+      # starten.
+      - '.github/workflows/**'
+      - '.markdownlint.yml'
   pull_request:
     branches: [main]
 
@@ -67,11 +72,22 @@ jobs:
         if: ${{ !cancelled() }}
         run: .github/htmlhint/node_modules/.bin/htmlhint "webroot/**/*.html"
 
-      # Pinned release plus checksum. The old form was
-      # `bash <(curl https://raw.githubusercontent.com/.../main/scripts/...)`:
-      # a script off the main branch, fetched without --fail and executed
-      # unverified. Whatever that URL served, this runner ran -- and because it
-      # tracked main, it could change under us without a commit here.
+      # markdownlint: houdt de Markdown in de repository consistent. De regelset
+      # staat in .markdownlint.yml, hetzelfde bestand als in de andere
+      # Hugo-repositories.
+      #
+      # Als stap en niet als eigen job: hij deelt de checkout hierboven en is in
+      # seconden klaar, dus een eigen runner kostte een volle minuut voor niets.
+      - name: Run markdownlint
+        if: ${{ !cancelled() }}
+        uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
+        with:
+          globs: |
+            webroot/**/*.md
+            *.md
+
+      # Vastgezette release plus checksum, in plaats van een script vanaf een
+      # branch rechtstreeks door bash halen.
       - name: Install actionlint
         if: ${{ !cancelled() }}
         env:
