@@ -15,7 +15,7 @@ concurrency:
   group: deploy
   cancel-in-progress: true
 
-# No token needed; jobs that do opt in explicitly. Without this the workflow ran
+# Geen token nodig; jobs die dat wel zijn, vragen er expliciet om. Without this the workflow ran
 # on the repository's default token permissions, which zizmor flagged as overly
 # broad: this job only reads the checkout and then talks to Bunny with its own
 # secrets. Same shape as the other THectic repositories.
