@@ -9,3 +9,6 @@
 # Downloaded/exported site snapshots — not source of truth
 export-bunny*/
 
+
+# npm-installaties (o.a. .github/htmlhint) horen niet in git; de lockfile wel
+node_modules/
