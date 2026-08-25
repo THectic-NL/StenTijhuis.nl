@@ -68,6 +68,18 @@ jobs:
               --metadata-directive REPLACE
           done
 
+      # Ook /health heeft geen extensie, dus komt het als binary/octet-stream
+      # binnen. Met nosniff erbij weigert de browser het te renderen.
+      - name: Fix Content-Type on the health endpoint
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.BUNNY_STORAGE_ZONE }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.BUNNY_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: de
+        run: |
+          aws s3 cp webroot/health "s3://${{ secrets.BUNNY_STORAGE_ZONE }}/health" \
+            --endpoint-url ${{ secrets.BUNNY_STORAGE_ENDPOINT }} \
+            --content-type 'text/plain; charset=utf-8'
+
       - name: Wait for storage replication
         run: sleep 15
 
