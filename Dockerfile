@@ -8,17 +8,16 @@ FROM nginx:1.31.4-alpine-slim@sha256:1870de6d59aafee152589b64404556d2535922cdd99
 # Debugging only: bash en nano (uncomment indien nodig)
 # RUN apk update && apk add --no-cache bash nano
 
-# Alleen de statische bestanden kopiëren naar nginx
-COPY ./webroot /usr/share/nginx/html
+# Alleen de statische bestanden kopiëren naar nginx met de juiste eigenaar
+COPY --chown=nginx:nginx ./webroot /usr/share/nginx/html
 
 # Eigen nginx config: security headers, gzip, cache
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --chown=nginx:nginx ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080
 
 # Nginx draaien als niet-root gebruiker (security hardening)
-RUN chown -R nginx:nginx /var/cache/nginx /var/log/nginx && \
-    touch /var/run/nginx.pid && \
+RUN touch /var/run/nginx.pid && \
     chown nginx:nginx /var/run/nginx.pid
 USER nginx
 
