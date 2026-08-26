@@ -39,7 +39,7 @@ jobs:
     permissions:
       contents: read
     container:
-      image: semgrep/semgrep@sha256:67319956da3dcb58baf5b322899c15458e3963e7018a86aeeb5cd224e69cb77a
+      image: semgrep/semgrep@sha256:f1f7b71861c7b28b6e0f661225a2c4f58a484f5d0f182465c6d6b3b22f972ade
     # Renovate-PR's overslaan: daar is geen token beschikbaar
     if: github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]'
     steps:
